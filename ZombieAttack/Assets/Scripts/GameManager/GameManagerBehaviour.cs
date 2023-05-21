@@ -40,7 +40,7 @@ public class GameManagerBehaviour : MonoBehaviour
     }
 
     private void UpdateZombieCountText() {
-        zombieText.text = zombieDeathCount.ToString();
+        zombieText.text = (zombieDeathCount * 100).ToString();
     }
 
     public void RestartLevel() {
