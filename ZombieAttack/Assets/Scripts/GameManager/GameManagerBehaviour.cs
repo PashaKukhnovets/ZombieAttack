@@ -19,7 +19,8 @@ public class GameManagerBehaviour : MonoBehaviour
     private bool isHealthBonusInstance = true;
     private bool isDDBonusInstance = true;
     private bool isDDTimer = false;
-    
+    private bool isUpdateZombiePts = true;
+
     public static int zombieDeathCount = 0;
 
     void Start()
@@ -28,7 +29,7 @@ public class GameManagerBehaviour : MonoBehaviour
         player.GetComponent<PlayerController>().PlayerDeath += RestartLevel;
         zombieDeathCount = 0;
     }
-    
+
     void Update()
     {
         UpdateZombieCountText();
@@ -39,25 +40,35 @@ public class GameManagerBehaviour : MonoBehaviour
         EnableDDTimer();
     }
 
-    private void UpdateZombieCountText() {
+    private void UpdateZombieCountText()
+    {
         zombieText.text = (zombieDeathCount * 100).ToString();
     }
 
-    public void RestartLevel() {
+    public void RestartLevel()
+    {
+        if (isUpdateZombiePts) {
+            SaveProgress.PlusZombiePoints(zombieDeathCount * 100);
+            isUpdateZombiePts = false;
+        }
         deathScreen.SetActive(true);
     }
 
-    private void InstanceZombie() {
+    private void InstanceZombie()
+    {
         zombies = GameObject.FindGameObjectsWithTag("Zombie");
 
-        if (zombies.Length < 10) {
-            Instantiate(zombiePrefab, new Vector3(Random.Range(-15.0f, 17.5f), 0.0f, 
+        if (zombies.Length < 10)
+        {
+            Instantiate(zombiePrefab, new Vector3(Random.Range(-15.0f, 17.5f), 0.0f,
                 Random.Range(-15.18f, 15.15f)), Quaternion.identity);
         }
     }
 
-    private void InstanceZombieBoss() {
-        if (zombieDeathCount % 10 == 0 && zombieDeathCount != 0 && isZombieBossInstance) {
+    private void InstanceZombieBoss()
+    {
+        if (zombieDeathCount % 10 == 0 && zombieDeathCount != 0 && isZombieBossInstance)
+        {
             Instantiate(zombieBossPrefab, new Vector3(Random.Range(-15.0f, 17.5f), 0.0f,
                 Random.Range(-15.18f, 15.15f)), Quaternion.identity);
             isZombieBossInstance = false;
@@ -93,14 +104,17 @@ public class GameManagerBehaviour : MonoBehaviour
             isDDBonusInstance = true;
     }
 
-    private void EnableDDTimer() {
-        if (isDDTimer) {
+    private void EnableDDTimer()
+    {
+        if (isDDTimer)
+        {
             DDTimer.SetActive(true);
             isDDTimer = false;
         }
     }
 
-    public void SetDDTimer(bool isTimer) {
+    public void SetDDTimer(bool isTimer)
+    {
         this.isDDTimer = isTimer;
     }
 

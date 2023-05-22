@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBarBehaviour : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI healthCount;
+
     private Slider healthBarSlider;
     private GameObject player;
 
@@ -15,6 +18,7 @@ public class HealthBarBehaviour : MonoBehaviour
 
         healthBarSlider.maxValue = player.GetComponent<PlayerController>().playerHealth;
         healthBarSlider.value = player.GetComponent<PlayerController>().playerHealth;
+        healthCount.text = player.GetComponent<PlayerController>().playerHealth.ToString() + "/" + SaveProgress.GetMaxHealth().ToString();
     }
 
     void Update()
@@ -24,5 +28,11 @@ public class HealthBarBehaviour : MonoBehaviour
 
     public void UpdateHealth() { 
         healthBarSlider.value = player.GetComponent<PlayerController>().playerHealth;
+        if(player.GetComponent<PlayerController>().playerHealth > 0)
+            healthCount.text = player.GetComponent<PlayerController>().playerHealth.ToString() + "/" 
+                + SaveProgress.GetMaxHealth().ToString();
+        if(player.GetComponent<PlayerController>().playerHealth <= 0)
+            healthCount.text = "0/"
+                + SaveProgress.GetMaxHealth().ToString();
     }
 }   
