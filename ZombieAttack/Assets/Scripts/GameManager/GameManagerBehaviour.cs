@@ -6,12 +6,14 @@ using UnityEngine;
 public class GameManagerBehaviour : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI zombieText;
+    [SerializeField] private TextMeshProUGUI metalCurrencyText;
     [SerializeField] private GameObject deathScreen;
     [SerializeField] private GameObject zombiePrefab;
     [SerializeField] private GameObject zombieBossPrefab;
     [SerializeField] private GameObject healthBonusPrefab;
     [SerializeField] private GameObject doubleDamageBonusPrefab;
     [SerializeField] private GameObject DDTimer;
+    [SerializeField] private GameObject metalCurrency;
 
     private GameObject player;
     private GameObject[] zombies;
@@ -20,6 +22,7 @@ public class GameManagerBehaviour : MonoBehaviour
     private bool isDDBonusInstance = true;
     private bool isDDTimer = false;
     private bool isUpdateZombiePts = true;
+    private bool isMetalCurrrencyInstance = true;
 
     public static int zombieDeathCount = 0;
 
@@ -33,16 +36,23 @@ public class GameManagerBehaviour : MonoBehaviour
     void Update()
     {
         UpdateZombieCountText();
+        UpdateMetalCurrencyText();
         InstanceZombie();
         InstanceZombieBoss();
         InstanceHealthBonus();
         InstanceDoubleDamageBonus();
+        InstanceMetalCurrency();
         EnableDDTimer();
     }
 
     private void UpdateZombieCountText()
     {
         zombieText.text = (zombieDeathCount * 100).ToString();
+    }
+
+    private void UpdateMetalCurrencyText()
+    {
+        metalCurrencyText.text = SaveProgress.GetMetalPoints().ToString();
     }
 
     public void RestartLevel()
@@ -52,6 +62,18 @@ public class GameManagerBehaviour : MonoBehaviour
             isUpdateZombiePts = false;
         }
         deathScreen.SetActive(true);
+    }
+
+    private void InstanceMetalCurrency() { 
+        if (zombieDeathCount % 10 == 0 && zombieDeathCount != 0 && isMetalCurrrencyInstance)
+        {
+            Instantiate(metalCurrency, new Vector3(Random.Range(-15.0f, 17.5f), 0.0f,
+                Random.Range(-15.18f, 15.15f)), Quaternion.identity);
+            isMetalCurrrencyInstance = false;
+        }
+
+        if (zombieDeathCount % 10 != 0)
+            isMetalCurrrencyInstance = true;
     }
 
     private void InstanceZombie()

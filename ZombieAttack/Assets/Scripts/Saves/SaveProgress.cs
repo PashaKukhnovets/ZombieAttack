@@ -12,6 +12,10 @@ public static class SaveProgress
     public static void SetMetalPoints(int value) {
         metalPoints = value;
     }
+    public static void PlusMetalPoints(int value)
+    {
+        metalPoints += value;
+    }
 
     public static void SetZombiePoints(int value) {
         zombiePoints = value;
@@ -32,6 +36,11 @@ public static class SaveProgress
 
     public static void BuyUpgradeSkill(int value) {
         zombiePoints -= value;
+    }
+
+    public static void BuyUpgradeHouse(int value)
+    {
+        metalPoints -= value;
     }
 
     public static void UpgradeHealth() {
