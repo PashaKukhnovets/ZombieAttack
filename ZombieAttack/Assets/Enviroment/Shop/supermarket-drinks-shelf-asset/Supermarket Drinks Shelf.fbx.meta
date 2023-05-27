@@ -3,7 +3,12 @@ guid: 85fd6317b103c264e838f6719eaf79af
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Supermarket Drinks Shelf
+    second: {fileID: 2100000, guid: 55d5ac3451a9bcb4c943678becee89b1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
