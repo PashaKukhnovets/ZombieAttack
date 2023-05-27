@@ -23,17 +23,17 @@ public class UpgradeHeroBehaviour : MonoBehaviour
     }
 
     public void UpgradeHealth() {
-        if (SaveProgress.GetZombiePoints() >= 5000) {
-            SaveProgress.BuyUpgradeSkill(5000);
+        if (SaveProgress.GetZombiePoints() >= 4000) {
+            SaveProgress.BuyUpgradeSkill(4000);
             SaveProgress.UpgradeHealth();
         }
     }
 
     public void UpgradeDamage()
     {
-        if (SaveProgress.GetZombiePoints() >= 6000)
+        if (SaveProgress.GetZombiePoints() >= 2000)
         {
-            SaveProgress.BuyUpgradeSkill(6000);
+            SaveProgress.BuyUpgradeSkill(2000);
             SaveProgress.UpgradeDamage();
         }
     }

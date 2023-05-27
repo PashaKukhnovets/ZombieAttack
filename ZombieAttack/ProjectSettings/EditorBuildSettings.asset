@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/HomeLocation.unity
     guid: 8915483cc93aedf43ad064697e768661
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/MilitaryBase.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 6b4851cb8ac2cf24fbe5addc2ab8727c
   m_configObjects: {}

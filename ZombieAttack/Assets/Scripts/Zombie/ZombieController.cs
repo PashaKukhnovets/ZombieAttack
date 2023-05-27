@@ -25,8 +25,10 @@ public class ZombieController : MonoBehaviour
     {
         if (this.zombieHealth <= 0.0f)
         {
-            if(isZombieCount)
+            if (isZombieCount)
+            {
                 GameManagerBehaviour.zombieDeathCount++;
+            }
             isZombieCount = false;
             ZombieDeath?.Invoke();
             this.gameObject.GetComponent<Pursue>().enabled = false;

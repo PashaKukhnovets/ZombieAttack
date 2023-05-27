@@ -8,18 +8,6 @@ public class UpdateHouseBehaviour : MonoBehaviour
     [SerializeField] private GameObject updateUI;
     [SerializeField] private GameObject newHangar;
     [SerializeField] private GameObject oldHangar;
-    //[SerializeField] private GameBehaviour gameBeh;
-    [SerializeField] private TextMeshProUGUI updateText;
-
-    private GameObject player;
-
-    public int updatePrice = 250;
-
-    private void Start()
-    {
-        updateText.text += " " + updatePrice.ToString();
-        player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -37,15 +25,24 @@ public class UpdateHouseBehaviour : MonoBehaviour
         }
     }
 
-    public void BuyUpdateHangar()
-    {
-        //if (gameBeh.Balance >= updatePrice)
-        //{
-        //    gameBeh.Balance -= updatePrice;
-        //    updateUI.SetActive(false);
-        //    oldHangar.SetActive(false);
-        //    newHangar.SetActive(true);
-        //    player.GetComponent<PlayerController>().IncreaseWheatPrice(2);
-        //}
+    public void BuyUpdateHouseSecondLevel() {
+        if (SaveProgress.GetMetalPoints() >= 1) {
+            SaveProgress.BuyUpgradeHouse(1);
+            oldHangar.SetActive(false);
+            newHangar.SetActive(true);
+            updateUI.SetActive(false);
+        }
     }
+
+    public void BuyUpdateHouseThirdLevel()
+    {
+        if (SaveProgress.GetMetalPoints() >= 2)
+        {
+            SaveProgress.BuyUpgradeHouse(2);
+            oldHangar.SetActive(false);
+            newHangar.SetActive(true);
+            updateUI.SetActive(false);
+        }
+    }
+
 }

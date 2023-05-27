@@ -5141,8 +5141,13 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9166191692367435985, guid: 9c32f2e3b18a3a94fa0cb90a4ac1c2fd, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3960879644723491922, guid: 9c32f2e3b18a3a94fa0cb90a4ac1c2fd, type: 3}
+    - {fileID: 9166191692367435985, guid: 9c32f2e3b18a3a94fa0cb90a4ac1c2fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c32f2e3b18a3a94fa0cb90a4ac1c2fd, type: 3}
 --- !u!4 &1111544960 stripped
 Transform:
@@ -10707,12 +10712,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieText: {fileID: 874256498}
+  metalCurrencyText: {fileID: 410199352}
   deathScreen: {fileID: 1397270080}
   zombiePrefab: {fileID: 8739630027198291276, guid: 366a90d1b7a9a1047b3b4f2a309ef38d, type: 3}
   zombieBossPrefab: {fileID: 5572143888143713325, guid: 3c14c72ba8ad6204ca19460f40f6f20e, type: 3}
   healthBonusPrefab: {fileID: 7457004315772510134, guid: 732b00febd202bf478d9accb2535cccd, type: 3}
   doubleDamageBonusPrefab: {fileID: 3026446325698718538, guid: d516f8bc5f83d4740ba498c8e7218741, type: 3}
   DDTimer: {fileID: 46606733}
+  metalCurrency: {fileID: 7768441229873387392, guid: f7f419ecb31ad1649973f69bc698edcc, type: 3}
 --- !u!1001 &1962553036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11478,7 +11485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -144.7, y: 0.21}
+  m_AnchoredPosition: {x: -144.70001, y: 0.21}
   m_SizeDelta: {x: 231.5, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2112291013
