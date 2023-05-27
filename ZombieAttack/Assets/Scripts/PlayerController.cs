@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 
     public float Speed { get; private set; }
     public float DirectionSpeed { get; private set; }
-    public float playerHealth = 100.0f;
-    public float playerDamage = 10.0f;
+    public float playerHealth;
+    public float playerDamage;
 
     public event UnityAction PlayerRun;
     public event UnityAction PlayerIdle;
@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        playerHealth = SaveProgress.GetMaxHealth();
+        playerDamage = SaveProgress.GetDamage();
         Speed = 4f;
     }
 
@@ -72,6 +74,10 @@ public class PlayerController : MonoBehaviour
             PlayerDeath?.Invoke();
             this.GetComponent<PlayerController>().enabled = false;
         }
+    }
+
+    public float GetCurrentHealth() {
+        return this.playerHealth;
     }
 
 }
