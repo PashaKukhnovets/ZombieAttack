@@ -58,10 +58,12 @@ public class PlayerController : MonoBehaviour
 
     public void StateOnDown() {
         _isClicked = true;
+        this.gameObject.transform.rotation *= Quaternion.Euler(0.0f, 45.0f, 0.0f);
     }
 
     public void StateOnUp() {
         _isClicked = false;
+        this.gameObject.transform.rotation *= Quaternion.Euler(0.0f, -45.0f, 0.0f);
     }
 
     public void MinusHP(float damage) {
