@@ -10,6 +10,7 @@ public class MusicSettings : MonoBehaviour
 
     private void Start()
     {
+        slider.value = 0.5f;
         fonMusic.volume = slider.value;
     }
 

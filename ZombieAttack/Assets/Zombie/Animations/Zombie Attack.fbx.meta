@@ -59,7 +59,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.37625977
+        functionName: PlayAudioAttack
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1b7c96e17c7b627418f0f4d0bc79d763, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
