@@ -26,7 +26,7 @@ public class UpdateHouseBehaviour : MonoBehaviour
     }
 
     public void BuyUpdateHouseSecondLevel() {
-        if (SaveProgress.GetMetalPoints() >= 1) {
+        if (SaveProgress.GetMetalPoints() >= 10) {
             SaveProgress.BuyUpgradeHouse(1);
             oldHangar.SetActive(false);
             newHangar.SetActive(true);
@@ -36,7 +36,7 @@ public class UpdateHouseBehaviour : MonoBehaviour
 
     public void BuyUpdateHouseThirdLevel()
     {
-        if (SaveProgress.GetMetalPoints() >= 2)
+        if (SaveProgress.GetMetalPoints() >= 20)
         {
             SaveProgress.BuyUpgradeHouse(2);
             oldHangar.SetActive(false);
